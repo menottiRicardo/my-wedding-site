@@ -1,176 +1,266 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Codigo de Vestimenta</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
-  </head>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 95%;
-      height: 100%;
-      background-color: white;
-      margin: 0 auto;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Codigo de Vestimenta</title>
+  <link rel="icon" type="image/png" href="/logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Special+Gothic+Expanded+One&display=swap"
+    rel="stylesheet" />
+</head>
+<style>
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 95%;
+    height: 100%;
+    background-color: white;
+    margin: 0 auto;
+  }
+  h1,
+  p,
+  h2 {
+    margin: 0;
+    padding: 0;
+    font-family: "Georgia", "Times New Roman", serif;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo {
+    width: 200px;
+    height: 200px;
+  }
+
+  .header {
+    margin-top: -10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    >h1 {
+      font-size: 28px;
+      font-weight: 600;
+      color: #c5b59c;
+      text-align: center;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+      line-height: 1.2;
     }
-    h1, p, h2 {
-      margin: 0;
-      padding: 0;
-      font-family: 'Georgia', 'Times New Roman', serif;
-    }
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .logo {
-      width: 200px;
-      height: 200px;
-    }
-    .header {
-      margin-top: -10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-        > h1 {
-          font-size: 28px;
-          font-weight: 600;
-          color: #C5B59C;
-          text-align: center;
-          text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-          line-height: 1.2;
-        }
-        > h2 {
-          top: 65px;
-          position: absolute;
-          font-size: 48px;
-          font-weight: 500;
-          font-family: 'Great Vibes', 'Dancing Script', cursive;
-          color: #a59884;
-          text-align: center;
-          text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-          margin-top: -5px;
-          margin-bottom: 20px;
-        }
-      .dress-code-img {
-        margin-top: 40px;
-        width: 300px;
-        height: 300px;
-        object-fit: cover;
-      }
-    }
-    .dress-code {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin-top: 40px;
-      gap: 10px;
-      > h1 {
-        font-family: 'Special Gothic Expanded One', 'Arial', sans-serif;
-        font-size: 24px;
-        font-weight: 600;
-        color: #a59884;
-        font-style: italic;
-      }
-      > p {
-        font-size: 16px;
-        font-weight: 600;
-        color: #C5B59C;
-        text-transform: uppercase;
-      }
-      > h2 {
-        font-size: 16px;
-        font-weight: 600;
-        color: #a59884;
-        margin-top: 16px;
-        text-transform: uppercase;
-        text-align: center;
-        font-family: 'Special Gothic Expanded One', 'Arial', sans-serif;
-      }
-    }
-    .colors-circles {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-top: 0px;
+
+    >h2 {
+      top: 65px;
+      position: absolute;
+      font-size: 48px;
+      font-weight: 500;
+      font-family: "Great Vibes", "Dancing Script", cursive;
+      color: #a59884;
+      text-align: center;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+      margin-top: -5px;
       margin-bottom: 20px;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
     }
-    .color-circle {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: 1px solid #a59884;
-      position: relative;
-      transition: transform 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    .color-circle:hover {
-      transform: scale(1.1);
-    }
-    .color-circle img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
+
+    .dress-code-img {
+      width: 300px;
+      height: 300px;
       object-fit: cover;
     }
-    .color-label {
-      position: absolute;
-      bottom: -25px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 12px;
-      color: #a59884;
+  }
+
+  .dress-code {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 10px;
+
+    >h1 {
+      font-family: "Special Gothic Expanded One", "Arial", sans-serif;
+      font-size: 24px;
       font-weight: 600;
-      text-align: center;
-      white-space: nowrap;
+      color: #a59884;
+      font-style: italic;
     }
-    </style>
-  <body>
-    <div class="container">
-        <!-- header -->
-         <img src="/logo.png" alt="header" class="logo">
-         <div class="header">
-            <h1>CÓDIGO DE<br>VESTIMENTA</h1>
-            <h2>Formal</h2>
-            <img src="/dresscode.avif" alt="dress-code" class="dress-code-img">
-         </div>
 
-         <!-- dress code -->
-         <div class="dress-code">
-            <h1>Colores:</h1>
-            <p>No Blanco, No Beige, No Crema</p>
-            <h2>Paleta Principal</h2>
-            <div class="colors-circles"></div>
-         </div>
+    >p {
+      font-size: 16px;
+      font-weight: 600;
+      color: #c5b59c;
+    }
 
+    >h2 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #a59884;
+      margin-top: 16px;
+      text-transform: uppercase;
+      text-align: center;
+      font-family: "Special Gothic Expanded One", "Arial", sans-serif;
+    }
+  }
 
-         <div class="dress-code">
-            <h1>Mujeres:</h1>
-            <p>No Cola, No Capas</p>
-         </div>
-         <div class="dress-code" style="margin-bottom: 40px;">
-            <h1>Hombres:</h1>
-            <p>Traje Formal</p>
-         </div>
+  .colors-circles {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 0px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-         <div class="dress-code" style="margin-bottom: 40px;">
-            <h1>Ideas:</h1>
-         </div>
+  .colors-circles-2 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 0px !important;
+    margin-bottom: 0px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .color-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #a59884;
+    position: relative;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .color-circle:hover {
+    transform: scale(1.1);
+  }
+
+  .color-circle img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .color-label {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: #a59884;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .navigation {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+  }
+  
+  .nav-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .nav-link:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+</style>
+
+<body>
+  <div class="container">
+    <!-- header -->
+    <img src="/logo1.jpg" alt="header" class="logo" />
+    <div class="header">
+      <h1>CÓDIGO DE<br />VESTIMENTA</h1>
+      <!-- <h2>Formal</h2> -->
+      <img src="/dresscode.avif" alt="dress-code" class="dress-code-img" />
     </div>
-    <script type="module" src="./src/dress-code.ts"></script>
-  </body>
-</html> 
+
+
+    <div class="dress-code">
+      <h1>Que no traer:</h1>
+      <p style="color: #a8341b; display: flex; align-items: center; gap: 4px; text-transform: uppercase;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="
+              width: 16px;
+              height: 16px;
+              fill: #a8341b;
+              padding-bottom: 2px;
+            ">
+          <!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+          <path
+            d="M55.1 73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L147.2 256 9.9 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192.5 301.3 329.9 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.8 256 375.1 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192.5 210.7 55.1 73.4z" />
+        </svg>No vestidos con Cola o Capas
+      </p>
+      <p style="color: #a8341b; display: flex; align-items: center; gap: 4px; text-transform: uppercase;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" style="
+              width: 16px;
+              height: 16px;
+              fill: #a8341b;
+              padding-bottom: 2px;
+            ">
+          <!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+          <path
+            d="M55.1 73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L147.2 256 9.9 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192.5 301.3 329.9 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.8 256 375.1 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192.5 210.7 55.1 73.4z" />
+        </svg>No Blanco, No Beige, No Crema
+      </p>
+    </div>
+
+    <div class="dress-code">
+      <h1>Recordatorio:</h1>
+      <p>La Boda es de día con un estilo de verano, porfavor mire las ideas de referencia.</p>
+    </div>
+    <!-- <div class="dress-code">
+      <h1>Hombres:</h1>
+      <p>Traje Formal</p>
+    </div> -->
+
+    <!-- colores 1 -->
+    <div class="dress-code">
+      <h2>Paleta Principal</h2>
+      <div class="colors-circles"></div>
+    </div>
+
+    <!-- colores 2 -->
+    <div class="dress-code" style="margin-top: 10px !important;">
+      <h2>Paleta Secundaria</h2>
+      <div class="colors-circles-2"></div>
+    </div>
+
+    <div class="dress-code" style="margin-bottom: 40px">
+      <h1>Ideas:</h1>
+    </div>
+  </div>
+  <script type="module" src="./src/dress-code.ts"></script>
+</body>
+
+</html>

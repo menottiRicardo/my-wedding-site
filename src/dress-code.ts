@@ -12,7 +12,7 @@ class DressCodePage {
     this.setupEventListeners();
     this.addPageAnimations();
     this.createColorCircles();
-
+    this.createColorCircles2();
     // Hot module replacement for development
     if (import.meta.hot) {
       import.meta.hot.accept();
@@ -98,16 +98,9 @@ class DressCodePage {
 
     // Brown color images to display
     const brownImages = [
-      { image: 'brown7.jpeg', name: 'Marrón 1' },
-      { image: 'brown2.jpeg', name: 'Marrón 2' },
-      { image: 'brown9.jpeg', name: 'Marrón 3' },
-      { image: 'brown4.jpeg', name: 'Marrón 4' },
-      { image: 'brown5.jpeg', name: 'Marrón 5' },
-      { image: 'brown6.jpeg', name: 'Marrón 6' },
-      { image: 'brown3.jpeg', name: 'Marrón 7' },
-      { image: 'brown8.jpeg', name: 'Marrón 8' },
-    //   { image: 'brown1.jpeg', name: 'Marrón 9' },
-      { image: 'brown10.jpeg', name: 'Marrón 9' },
+      { image: 'brown4.jpeg', name: 'chocolate oscuro' },
+      { image: 'brown2.jpeg', name: 'chocolate claro' },
+      { image: 'brown3.jpeg', name: 'bronze' },
     ];
 
     brownImages.forEach((imageInfo, index) => {
@@ -129,44 +122,43 @@ class DressCodePage {
     });
   }
 
-  // Method to update dress code information dynamically
-  public updateDressCode(newInfo: {
-    title?: string;
-    description?: string;
-    examples?: Array<{ title: string; description: string }>;
-  }): void {
-    if (newInfo.title) {
-      const titleElement = document.querySelector('.dress-code-title');
-      if (titleElement) titleElement.textContent = newInfo.title;
-    }
+  private createColorCircles2(): void {
+    const colorsContainer = document.querySelector('.colors-circles-2');
+    if (!colorsContainer) return;
 
-    if (newInfo.description) {
-      const descElement = document.querySelector('.dress-code-description');
-      if (descElement) descElement.textContent = newInfo.description;
-    }
+    // Brown color images to display
+    const brownImages = [
+      { image: 'brown7.jpeg', name: 'rosa vieja' },
+      { image: 'brown11.jpeg', name: 'morado' },
+      { image: 'brown1.jpeg', name: 'verde' },
+      { image: 'brown9.jpeg', name: 'celeste' },
+      { image: 'brown10.jpeg', name: 'azul' },
+    ];
 
-    if (newInfo.examples) {
-      const examplesContainer = document.querySelector('.dress-examples');
-      if (examplesContainer) {
-        examplesContainer.innerHTML = '';
-        newInfo.examples.forEach(example => {
-          const exampleDiv = document.createElement('div');
-          exampleDiv.className = 'dress-example';
-          exampleDiv.innerHTML = `
-            <div class="example-title">${example.title}</div>
-            <div class="example-description">${example.description}</div>
-          `;
-          examplesContainer.appendChild(exampleDiv);
-        });
-        this.addHoverEffects(); // Re-add hover effects to new elements
-      }
-    }
+    brownImages.forEach((imageInfo, index) => {
+      const circleWrapper = document.createElement('div');
+      circleWrapper.style.position = 'relative';
+      
+      const circle = document.createElement('div');
+      circle.className = 'color-circle';
+      circle.style.animationDelay = `${0.2 * index}s`;
+      circle.classList.add('fade-in-stagger');
+      
+      const img = document.createElement('img');
+      img.src = `/${imageInfo.image}`;
+      img.alt = imageInfo.name;
+      img.style.display = 'block';
+      circle.appendChild(img);
+      circleWrapper.appendChild(circle);
+      colorsContainer.appendChild(circleWrapper);
+    });
   }
 }
 
 // Initialize the dress code page
 document.addEventListener('DOMContentLoaded', () => {
   new DressCodePage();
+
 });
 
 // Export for potential external use

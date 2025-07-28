@@ -21,7 +21,10 @@ export default defineConfig({
     outDir: "./dist",
     assetsDir: ".",
     rollupOptions: {
-      //
+      input: {
+        main: 'index.html',
+        'dress-code': 'dress-code.html'
+      },
     },
   },
 });
