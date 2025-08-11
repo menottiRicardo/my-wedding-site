@@ -1,7 +1,6 @@
 import type { Sketch, SketchSettings } from "ssam";
 import { ssam } from "ssam";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import Stats from "three/examples/jsm/libs/stats.module.js";
 import { Fn, vec4,positionLocal,positionWorld,vec2,vec3,mix,smoothstep,cameraProjectionMatrix,uniform,distance,texture,uv,screenUV,varying,modelViewMatrix,float,cos } from "three/tsl";
 import {
   BoxGeometry,
@@ -15,7 +14,7 @@ import {
 import model from '../original.glb?url'
 import * as THREE from 'three'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
-  import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { TrailCanvas } from './trail';
 
 const sketch: Sketch<"webgpu"> = async ({
@@ -44,9 +43,6 @@ const sketch: Sketch<"webgpu"> = async ({
 
   const controls = new OrbitControls(camera, renderer.domElement);
 
-  const stats = new Stats();
-  document.body.appendChild(stats.dom);
-
   const scene = new Scene();
 
   // START OF THE CODE
@@ -60,15 +56,6 @@ const sketch: Sketch<"webgpu"> = async ({
   const materials = []
 
   const trail = new TrailCanvas(width,height);
-
-  let canv = trail.canvas;
-  canv.style.position = 'absolute';
-  canv.style.top = '0';
-  canv.style.left = '0';
-  canv.style.zIndex = '1000';
-  canv.style.width = '200px';
-  canv.style.height = `${200*height/width}px`;
-  document.body.appendChild(canv);
 
   let trailTexture = new THREE.Texture(trail.getTexture());
   trailTexture.flipY = false;
@@ -180,7 +167,6 @@ const sketch: Sketch<"webgpu"> = async ({
     }
     
     controls.update();
-    stats.update();
     renderer.render(scene, camera);
   };
 
