@@ -2,7 +2,7 @@ import type { Sketch, SketchSettings } from "ssam";
 import { ssam } from "ssam";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import Stats from "three/examples/jsm/libs/stats.module.js";
-import { Fn, normalLocal, vec4,positionLocal,positionWorld,vec2,vec3,mix,smoothstep,cameraProjectionMatrix,uniform,distance,texture,uv,screenUV,varying,modelViewMatrix,float,cos } from "three/tsl";
+import { Fn, vec4,positionLocal,positionWorld,vec2,vec3,mix,smoothstep,cameraProjectionMatrix,uniform,distance,texture,uv,screenUV,varying,modelViewMatrix,float,cos } from "three/tsl";
 import {
   BoxGeometry,
   Color,
@@ -16,7 +16,7 @@ import model from '../original.glb?url'
 import * as THREE from 'three'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
   import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { TrailCanvas } from './trail.js';
+import { TrailCanvas } from './trail';
 
 const sketch: Sketch<"webgpu"> = async ({
   wrap,
@@ -105,27 +105,6 @@ const sketch: Sketch<"webgpu"> = async ({
         let texture2 = child.material.emissiveMap;
         let uvscreen = varying(vec2(0.,0.));
 
-        const palette = Fn(({t}) => {
-          const a = vec3(0.5,0.5,0.5);
-          const b = vec3(0.5,0.5,0.5);
-          const c = vec3(1.0,1.0,1.0);
-          const d = vec3(0.00,0.10,0.20);
-
-          return a.add(b.mul(cos(float(6.283185).mul(c.mul(t).add(d)))));
-        });
-
-        const sRGBTransferOETF = Fn( ( [ color ] ) => {
-
-          const a = color.pow( 0.41666 ).mul( 1.055 ).sub( 0.055 );
-          const b = color.mul( 12.92 );
-          const factor = color.lessThanEqual( 0.0031308 );
-        
-          const rgbResult = mix( a, b, factor );
-        
-          return rgbResult;
-        
-        } );
-
 
         material.positionNode = Fn(() => {
           
@@ -145,8 +124,8 @@ const sketch: Sketch<"webgpu"> = async ({
         })();
         material.colorNode = Fn(() => {
           const dist = distance(positionWorld,uMouse);
-          const tt1 = sRGBTransferOETF(texture(texture1,uv()));
-          const tt2 = sRGBTransferOETF(texture(texture2,uv()));
+          const tt1 = texture(texture1, uv());
+          const tt2 = texture(texture2, uv());
           const extrude = texture(trailTexture,screenUV);
           let level0 = tt2.b;
           let level1 = tt2.g;
@@ -160,11 +139,6 @@ const sketch: Sketch<"webgpu"> = async ({
           final = mix(final,level3,smoothstep(0.4,0.6,extrude));
           final = mix(final,level4,smoothstep(0.6,0.8,extrude));
           final = mix(final,level5,smoothstep(0.8,1.,extrude));
-
-
-          let finalCool = palette({t:final.mul(1.).add(0.)});
-
-
           // return vec4(vec3(final),1);
           return vec4(vec3(final),1);
         })();
