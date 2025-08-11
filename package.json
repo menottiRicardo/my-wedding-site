@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noemit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "vite preview --host"
   },
   "dependencies": {
     "@daeinc/keyframes": "^0.1.0",
