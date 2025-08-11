@@ -27,4 +27,7 @@ export default defineConfig({
       },
     },
   },
+  preview: {
+    allowedHosts: ["ricardorachell.com","my-wedding-site-production.up.railway.app"],
+  },
 });
