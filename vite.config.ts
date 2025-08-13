@@ -27,7 +27,10 @@ export default defineConfig({
       },
     },
   },
+  server: {
+    allowedHosts: ["f68a6f725801.ngrok-free.app"],
+  },
   preview: {
-    allowedHosts: ["ricardorachell.com","my-wedding-site-production.up.railway.app"],
+    allowedHosts: ["ricardorachell.com","my-wedding-site-production.up.railway.app", "7e878904996f.ngrok-free.app"],
   },
 });

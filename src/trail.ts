@@ -73,6 +73,12 @@ export class TrailCanvas {
   setCircleRadius(radius: number): void {
     this.circleRadius = radius;
   }
+
+  resize(width: number, height: number): void {
+    this.canvas.width = width;
+    this.canvas.height = height;
+    this.clear();
+  }
 }
 
 
